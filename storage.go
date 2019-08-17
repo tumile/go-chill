@@ -7,7 +7,9 @@ type storage struct {
 }
 
 func newStorage(window time.Duration) *storage {
-	s := storage{}
+	s := storage{
+		hits: make(map[string]int),
+	}
 	ticker := time.NewTicker(window)
 	go func() {
 		for {
